@@ -1,35 +1,40 @@
 {
     "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL",
     "meta": {
-        "version": "PLCN_v1",
+        "version": "PLCN_v3",
         "update_url": null
     },
-    "exported_at": "2025-02-09T15:43:04+00:00",
+    "exported_at": "2026-05-17T18:25:02+00:00",
     "name": "Redis-7",
     "author": "parker@parkervcp.com",
     "uuid": "96482492-e3ef-4d3b-9d9c-fd8d618e54b5",
     "description": "Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams.",
-    "features": null,
+    "icon": "data:image/webp;base64,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",
+    "tags": [],
+    "features": [],
     "docker_images": {
-        "ghcr.io\/parkervcp\/yolks:redis_7": "ghcr.io\/parkervcp\/yolks:redis_7"
+        "ghcr.io/parkervcp/yolks:redis_7": "ghcr.io/parkervcp/yolks:redis_7"
     },
     "file_denylist": [],
-    "startup": "\/usr\/local\/bin\/redis-server \/home\/container\/redis.conf --save 60 1 --dir \/home\/container\/ --bind 0.0.0.0 --port {{SERVER_PORT}} --requirepass '{{SERVER_PASSWORD}}' --maxmemory {{SERVER_MEMORY}}mb --daemonize yes && redis-cli -p {{SERVER_PORT}}; redis-cli -p {{SERVER_PORT}} -a '{{SERVER_PASSWORD}}' shutdown save",
+    "startup_commands": {
+        "Default": "/usr/local/bin/redis-server /home/container/redis.conf --dir /home/container/ --bind 0.0.0.0 --port {{SERVER_PORT}} --requirepass '{{SERVER_PASSWORD}}' --maxmemory {{SERVER_MEMORY}}mb"
+    },
     "config": {
         "files": "{}",
-        "startup": "{\r\n    \"done\": \"Configuration loaded\"\r\n}",
+        "startup": "{\n    \"done\": \"Ready to accept connections\"\n}",
         "logs": "{}",
         "stop": "^C"
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Redis Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\napk add --no-cache curl\r\n\r\nif [ ! -d \/mnt\/server ]; then\r\n    mkdir \/mnt\/server\/\r\nfi\r\n\r\ncd \/mnt\/server\/\r\n\r\nif [ ! -d \/mnt\/server\/redis.conf ]; then\r\n    curl https:\/\/raw.githubusercontent.com\/parkervcp\/eggs\/master\/database\/redis\/redis-7\/redis.conf -o redis.conf\r\nfi\r\n\r\nsleep 5\r\necho -e \"Install complete. Made this to not have issues.\"",
-            "container": "ghcr.io\/parkervcp\/installers:alpine",
+            "script": "#!/bin/ash\r\n# Redis Installation Script\r\n#\r\n# Server Files: /mnt/server\r\n\r\napk add --no-cache curl\r\n\r\nif [ ! -d /mnt/server ]; then\r\n    mkdir /mnt/server/\r\nfi\r\n\r\ncd /mnt/server/\r\n\r\nif [ ! -d /mnt/server/redis.conf ]; then\r\n    curl https://raw.githubusercontent.com/parkervcp/eggs/master/database/redis/redis-7/redis.conf -o redis.conf\r\nfi\r\n\r\nsleep 5\r\necho -e \"Install complete. Made this to not have issues.\"",
+            "container": "ghcr.io/parkervcp/installers:alpine",
             "entrypoint": "ash"
         }
     },
     "variables": [
         {
+            "sort": 1,
             "name": "Redis Password",
             "description": "The password redis should use to secure the server.",
             "env_variable": "SERVER_PASSWORD",
@@ -39,8 +44,7 @@
             "rules": [
                 "required",
                 "string"
-            ],
-            "sort": null
+            ]
         }
     ]
 }
