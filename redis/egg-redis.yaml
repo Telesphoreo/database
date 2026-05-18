@@ -2,7 +2,7 @@ _comment: 'DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL'
 meta:
   version: PLCN_v3
   update_url: 'https://raw.githubusercontent.com/pelican-eggs/database/refs/heads/main/redis/egg-redis.yaml'
-exported_at: '2026-05-18T02:40:53+00:00'
+exported_at: '2026-05-18T03:24:24+00:00'
 name: Redis
 author: parker@parkervcp.com
 uuid: 96482492-e3ef-4d3b-9d9c-fd8d618e54b5
@@ -15,23 +15,25 @@ tags:
   - database
 features: {  }
 docker_images:
-  'Redis 5': 'ghcr.io/parkervcp/yolks:redis_5'
-  'Redis 6': 'ghcr.io/parkervcp/yolks:redis_6'
-  'Redis 7': 'ghcr.io/parkervcp/yolks:redis_7'
-  'Redis 8': 'ghcr.io/parkervcp/yolks:redis_8'
+  'Redis 7': 'ghcr.io/telesphoreo/yolks:redis_7'
+  'Redis 8': 'ghcr.io/telesphoreo/yolks:redis_8'
 file_denylist: {  }
 startup_commands:
-  Default: '/bin/sh /home/container/start.sh'
+  Default: "/usr/local/bin/redis-server /home/container/redis.conf --save 60 1 --dir /home/container/ --bind 0.0.0.0 --port {{SERVER_PORT}} --requirepass '{{SERVER_PASSWORD}}' --maxmemory {{SERVER_MEMORY}}mb"
 config:
   files: {  }
   startup:
     done: 'Ready to accept connections'
   logs: {  }
-  stop: ^C
+  stop: 'SHUTDOWN SAVE'
 scripts:
   installation:
     script: |-
       #!/bin/ash
+      # Redis Installation Script
+      #
+      # Server Files: /mnt/server
+
       apk add --no-cache curl
 
       if [ ! -d /mnt/server ]; then
@@ -43,29 +45,6 @@ scripts:
       if [ ! -f /mnt/server/redis.conf ]; then
           curl https://raw.githubusercontent.com/pelican-eggs/database/refs/heads/main/redis/redis.conf -o redis.conf
       fi
-
-      cat > /mnt/server/start.sh <<'EOF'
-      #!/bin/sh
-      /usr/local/bin/redis-server /home/container/redis.conf \
-        --save 60 1 --dir /home/container/ --bind 0.0.0.0 \
-        --port "$SERVER_PORT" --requirepass "$SERVER_PASSWORD" \
-        --maxmemory "${SERVER_MEMORY}mb" --daemonize no &
-      REDIS_PID=$!
-
-      # Forward stop signals to redis-server for graceful shutdown
-      trap 'kill -TERM $REDIS_PID; wait $REDIS_PID' TERM INT
-
-      sleep 2
-
-      while IFS= read -r line; do
-        [ -z "$line" ] && continue
-        printf '%s\n' "$line" | /usr/local/bin/redis-cli \
-          -p "$SERVER_PORT" -a "$SERVER_PASSWORD" --no-auth-warning
-      done
-
-      wait $REDIS_PID
-      EOF
-      chmod +x /mnt/server/start.sh
 
       echo "Install complete."
     container: 'ghcr.io/parkervcp/installers:alpine'
